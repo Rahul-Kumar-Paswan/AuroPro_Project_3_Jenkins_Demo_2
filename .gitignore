@@ -1,0 +1,42 @@
+# General ignores
+__pycache__/
+.venv/
+flask_app.egg-info/
+dist/
+build/
+manifests/
+.dockerignore
+my_config.py
+
+# Ignore Mac/OSX system file, with the folder metadata
+.DS_Store
+
+# ignore crash logs
+crash.log
+
+# Local .terraform directories
+**/.terraform/*
+AuroPro_Project_3/.terraform/*
+
+# .tfstate files
+AuroPro_Project_3/*.tfstate
+AuroPro_Project_3/*.tfstate.*
+AuroPro_Project_3/.terraform/
+
+# Exclude specific .tfvars files
+*.tfvars
+AuroPro_Project_3/*.tfvars
+AuroPro_Project_3/terraform.tfvars
+
+# Ignore CLI configuration files
+AuroPro_Project_3/.terraformrc
+AuroPro_Project_3/terraform.rc
+
+# Specific to flask-jenkins-deploy
+flask-jenkins-deploy/__pycache__/
+flask-jenkins-deploy/.venv/
+flask-jenkins-deploy/flask_app.egg-info/
+flask-jenkins-deploy/dist/
+flask-jenkins-deploy/build/
+flask-jenkins-deploy/.dockerignore
+flask-jenkins-deploy/my_config.py

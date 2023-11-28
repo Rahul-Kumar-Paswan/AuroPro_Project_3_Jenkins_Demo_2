@@ -1,0 +1,21 @@
+variable "region" {}
+variable "vpc_cidr_block" {}
+variable "env_prefix" {}
+variable "public_subnet_cidr_block" {}
+variable "private_subnet_cidr_block" {}
+variable "public_subnet_availability_zone" {}
+variable "private_subnet_availability_zone" {}
+variable "instance_type" {}
+variable "ami_id" {}
+variable "instance_name" {}
+
+variable "db_instance_identifier" {}
+variable "db_allocated_storage" {}
+variable "db_engine" {}
+variable "db_engine_version" {}
+variable "db_instance_class" {}
+variable "db_name" {}
+variable "db_username" {}
+variable "db_password" {}
+variable "db_multi_az" {}
+variable "db_backup_retention_period" {}
