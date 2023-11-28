@@ -93,7 +93,7 @@ pipeline {
             sh "cat terraform.tfvars"
 
             sh "terraform init"
-            sh "terraform workspace new '${env_prefix}'"
+            sh "terraform workspace new '${envPrefix}'"
             sh "terraform plan"
             sh "terraform validate"
             sh "terraform apply -auto-approve"
