@@ -87,7 +87,7 @@ pipeline {
             withCredentials([file(credentialsId: 'terraform_tfvars_secret', variable: 'TFVARS_FILE')]) {
               sh 'cp $TFVARS_FILE terraform.tfvars'
               // Extract the value of env_prefix from terraform.tfvars
-              def envPrefix = sh(script: "grep 'env_prefix' terraform.tfvars | awk -F= '{print \$2}' | tr -d ' \"'", returnStdout: true).trim()
+              envPrefix = sh(script: "grep 'env_prefix' terraform.tfvars | awk -F= '{print \$2}' | tr -d ' \"'", returnStdout: true).trim()
               echo "${envPrefix}"
             }
             
