@@ -65,9 +65,9 @@ pipeline {
       steps {
         echo "Stage 2 Building Image"
         sh "ls -l /var/run/docker.sock"
-        // buildImage "auropro_project_3:${IMAGE_NAME}"
-        // dockerLogin()
-        // dockerPush "auropro_project_3:${IMAGE_NAME}"
+        buildImage "auropro_project_3:${IMAGE_NAME}"
+        dockerLogin()
+        dockerPush "auropro_project_3:${IMAGE_NAME}"
       }
     }
 
@@ -172,12 +172,12 @@ pipeline {
           sh "ssh -o StrictHostKeyChecking=no -i ${privateKeyPath} ${ec2Instance} 'ls -l /home/ec2-user'"
 
           // sh "ssh -o StrictHostKeyChecking=no -i ${privateKeyPath} ${ec2Instance} ${shellCmd}"
-          // sh "ssh -o StrictHostKeyChecking=no -i ${privateKeyPath} ${ec2Instance} docker run -p 5000:5000 -d \
-          //   -e MYSQL_HOST=${RDS_DB_ENDPOINT} \
-          //   -e MYSQL_USER=${RDS_DB_USERNAME} \
-          //   -e MYSQL_ROOT_PASSWORD=${RDS_DB_PASSWORD} \
-          //   -e MYSQL_DATABASE=${RDS_DB_NAME} \
-          //   ${IMAGE_NAME_1}"
+          sh "ssh -o StrictHostKeyChecking=no -i ${privateKeyPath} ${ec2Instance} docker run -p 5000:5000 -d \
+            -e MYSQL_HOST=${RDS_DB_ENDPOINT} \
+            -e MYSQL_USER=${RDS_DB_USERNAME} \
+            -e MYSQL_ROOT_PASSWORD=${RDS_DB_PASSWORD} \
+            -e MYSQL_DATABASE=${RDS_DB_NAME} \
+            ${IMAGE_NAME_1}"
 
           // deployApp "auropro_project_3:${IMAGE_NAME}"
         }
