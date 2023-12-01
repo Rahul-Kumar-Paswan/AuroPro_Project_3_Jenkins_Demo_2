@@ -8,6 +8,8 @@ manifests/
 .dockerignore
 my_config.py
 
+.dockerignore
+
 # Ignore Mac/OSX system file, with the folder metadata
 .DS_Store
 
