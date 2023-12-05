@@ -208,7 +208,19 @@ pipeline {
       steps {
         script {
           dir('AuroPro_Project_3'){
+            sh 'touch terraform.tfvars'
+            sh "chmod 644 terraform.tfvars"
+
+            withCredentials([file(credentialsId: 'terraform_tfvars_secret', variable: 'TFVARS_FILE')]) {
+              sh 'cp $TFVARS_FILE terraform.tfvars'
+              // Extract the value of env_prefix from terraform.tfvars
+              envPrefix = sh(script: "grep 'env_prefix' terraform.tfvars | awk -F= '{print \$2}' | tr -d ' \"'", returnStdout: true).trim()
+              echo "${envPrefix}"
+            }
+            
+            sh "cat terraform.tfvars"
             sh "terraform init"
+            sh "terraform workspace select ${envPrefix}"
             sh "terraform plan"
             sh "terraform validate"
             sh " terraform destroy -auto-approve"
