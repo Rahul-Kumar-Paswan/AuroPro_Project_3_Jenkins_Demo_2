@@ -2,7 +2,6 @@ import time
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
-# from my_config import mysql_host, mysql_user, mysql_password, mysql_database  # Import MySQL configuration
 import os
 
 app = Flask(__name__)
@@ -15,13 +14,6 @@ mysql_user = os.getenv('MYSQL_USER', 'root')
 mysql_password = os.getenv('MYSQL_ROOT_PASSWORD', 'password')
 mysql_database = os.getenv('MYSQL_DATABASE', 'my_db')
 mysql_port = int(os.getenv('MYSQL_PORT', 3306))
-
-# Get MySQL environment variables or use defaults this is for local
-
-print("MYSQL_HOST ", mysql_host)
-print("MYSQL_USER ", mysql_user)
-print("MYSQL_ROOT_PASSWORD ", mysql_password)
-print("MYSQL_DATABASE ", mysql_database)
 
 
 # Add a delay to allow MySQL to start
